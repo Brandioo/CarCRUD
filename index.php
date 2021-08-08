@@ -2,7 +2,7 @@
 
 include "config.php";
 require "controller.php";
-
+// KOMENT
 //$db = Connection::open($configArray);
 
 //if($_SERVER['REQUEST_URI'] == '/api/makina'){
@@ -53,6 +53,7 @@ if (!empty($_SERVER['REQUEST_URI'])) {
     }
 //    die("asnje kusht su plotesua");
 }
+//komentkoment
 
 ?>
 
