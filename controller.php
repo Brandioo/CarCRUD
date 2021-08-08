@@ -75,3 +75,5 @@ function deleteCar($id)
     Car::delete($id);
     header('location:/');
 }
+
+//koment kot
