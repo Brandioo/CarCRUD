@@ -24,6 +24,6 @@ class Connection
     }
 }
 
-
+//ckemi si jeni
 ?>
 
