@@ -46,9 +46,9 @@ if (!empty($_SERVER['REQUEST_URI'])) {
         $uriParts = explode("/", $_SERVER['REQUEST_URI']);
         $id = $uriParts[2];
         getCar($id);
-    } elseif (strpos($_SERVER['REQUEST_URI'], '/save') !== false && $_SERVER['REQUEST_METHOD'] == 'POST' ) {
+    } elseif (strpos($_SERVER['REQUEST_URI'], '/save') !== false && $_SERVER['REQUEST_METHOD'] == 'POST') {
         updateCars();
-    }elseif (strpos($_SERVER['REQUEST_URI'], '/') !== false && $_SERVER['REQUEST_METHOD'] == 'POST' ) {
+    } elseif (strpos($_SERVER['REQUEST_URI'], '/') !== false && $_SERVER['REQUEST_METHOD'] == 'POST') {
         addCar();
     }
 //    die("asnje kusht su plotesua");

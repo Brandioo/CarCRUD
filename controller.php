@@ -11,30 +11,20 @@ function getDB()
 
 function getCars()
 {
-    $db = getDB();
 
-    $sql = "SELECT * FROM cars ORDER BY carID ASC";
-    $cars = $db->query($sql);
+    require "Car.php";
 
-    require 'views/index.php';
+    Car::getCars();
+
+//    header('location:/');
+
 }
 
 function getCar($id)
 {
-
     $db = getDB();
-
-    $sql = "SELECT * FROM cars where carID = :id";
-    $stmt = $db->prepare($sql);
-
-    $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-    $stmt->execute();
-    $data = $stmt->fetch(PDO::FETCH_ASSOC);
-    if ($data) {
-        require "views/form_update.php";
-    } else {
-        die("Nuk ekziston nje makine me kete id!");
-    }
+    require "Car.php";
+    Car::getCarByID($id,$db);
 
 }
 
@@ -44,7 +34,7 @@ function updateCars()
 
 //variabli i queryit
 
-    require "model/Car.php";
+    require "Car.php";
 
     $updateCar = new Car($_POST['firm'], $_POST['type'], $_POST['number'],
         $_POST['kmdone'], $_POST['transmission'], $_POST['price'], $_POST['state'], $_POST['id']);
@@ -59,7 +49,7 @@ function addCar()
 
 //variabli i queryit
 
-    require "model/Car.php";
+    require "Car.php";
     $saveCar = new Car($_POST['firm'], $_POST['type'], $_POST['number'],
         $_POST['kmdone'], $_POST['transmission'], $_POST['price'], $_POST['state']);
 
@@ -71,9 +61,7 @@ function addCar()
 
 function deleteCar($id)
 {
-    require "model/Car.php";
+    require "Car.php";
     Car::delete($id);
     header('location:/');
 }
-
-//koment kot

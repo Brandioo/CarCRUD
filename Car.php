@@ -92,6 +92,32 @@ WHERE carID = :id;
         $stmt->execute();
     }
 
+    public static function getCarByID($id, $db)
+    {
+        $sql = "SELECT * FROM cars where carID = :id";
+        $stmt = $db->prepare($sql);
+
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+        $data = $stmt->fetch(PDO::FETCH_ASSOC);
+        if ($data) {
+            require "views/form_update.php";
+        } else {
+            die("Nuk ekziston nje makine me kete id!");
+        }
+    }
+
+    public static function getCars()
+    {
+        require "conn.php";
+        require "config.php";
+
+        $db = Connection::open($configArray);
+        $sql = "SELECT * FROM cars ORDER BY carID ASC";
+        $cars = $db->query($sql);
+
+        require 'views/index.php';
+    }
     /**
      * @return mixed
      */
