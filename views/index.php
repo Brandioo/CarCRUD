@@ -11,7 +11,7 @@ include "footer.php";
         background-image: url(https://i.pinimg.com/originals/ff/46/3f/ff463f7a1f926bbde7d50f05b546a0ef.jpg);
         background-repeat: no-repeat;
         background-size: cover;
-        padding: 20px;
+        padding: 20px
         align: center;
         color: #0aa9e7;
     }
