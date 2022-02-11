@@ -1,5 +1,6 @@
 <?php
 require "config.php";
+
 class Connection
 {
     private static $db = null;
